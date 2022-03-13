@@ -1,7 +1,6 @@
 // import icons from '../img/icons.svg' //Parcel 1
 import icons from 'url:../../img/icons.svg'; //Parcel 2
 import fracty from 'fracty';
-console.log(fracty);
 
 class RecipeView {
   #parentElement = document.querySelector('.recipe');
@@ -25,7 +24,7 @@ class RecipeView {
         </svg>
       </div>
     `;
-    this.#parentElement.innerHTML = '';
+    this.#clear();
     this.#parentElement.insertAdjacentHTML('afterbegin', markup);
   };
 
