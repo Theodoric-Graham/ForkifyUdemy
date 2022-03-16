@@ -6,10 +6,10 @@ import resultsView from './views/resultsView.js';
 import 'core-js/stable'; //polyfilling everything else
 import 'regenerator-runtime/runtime'; //polyfilling async await
 
-if (module.hot) {
-  //coming from parcel for hot modules
-  module.hot.accept();
-}
+// if (module.hot) {
+//   //coming from parcel for hot modules
+//   module.hot.accept();
+// }
 
 // https://forkify-api.herokuapp.com/v2
 
@@ -43,7 +43,8 @@ const controlSearchResults = async function () {
     await model.loadSearchResults(query);
 
     //3) Render results
-    resultsView.render(model.state.search.results);
+    // resultsView.render(model.state.search.results);
+    resultsView.render(model.getSearchResultsPage());
   } catch (err) {
     console.error(err);
   }
