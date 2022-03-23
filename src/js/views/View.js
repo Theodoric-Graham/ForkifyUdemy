@@ -17,7 +17,7 @@ export default class View {
     const newMarkup = this._generateMarkup();
     //converts the string into real DOM node objects, basically creates a virtual DOM
     const newDom = document.createRange().createContextualFragment(newMarkup);
-    console.log(newDom);
+    // console.log(newDom);
     const newElements = Array.from(newDom.querySelectorAll('*'));
     const curElements = Array.from(this._parentElement.querySelectorAll('*'));
     // console.log(curElements);
@@ -29,7 +29,7 @@ export default class View {
     newElements.forEach((newEl, i) => {
       const curEl = curElements[i];
       //.isEqualNode will compare the contents of one node to the one we pass in
-      console.log(curEl, newEl.isEqualNode(curEl));
+      // console.log(curEl, newEl.isEqualNode(curEl));
       // Updates changed TEXT - the value of nodeValue will be null for most node
       //types, but if its text you get the content of the text node
       //so if none of the nodeValues contain text directly, it will be false
@@ -42,7 +42,7 @@ export default class View {
       }
       // Updates changed ATTRIBUTES
       if (!newEl.isEqualNode(curEl)) {
-        console.log(Array.from(newEl.attributes));
+        // console.log(Array.from(newEl.attributes));
         Array.from(newEl.attributes).forEach(attr =>
           curEl.setAttribute(attr.name, attr.value)
         );
