@@ -112,6 +112,19 @@ const controlAddRecipe = async function (newRecipe) {
     //Success message
     addRecipeView.renderMessage();
 
+    //Render bookmark view
+    bookmarksView.render(model.state.bookmarks);
+
+    // Change ID in URL
+    // history api, this will allow us to change the url
+    //without loading the page, takes 3 arguments
+    //first one is state, can specify null
+    //second is title, also not relavent
+    //third is the URL
+    //can use it for going back and forth
+    window.history.pushState(null, '', `#${model.state.recipe.id}`);
+    // window.history.back()
+
     //Close form window
     setTimeout(function () {
       addRecipeView.toggleWindow();
